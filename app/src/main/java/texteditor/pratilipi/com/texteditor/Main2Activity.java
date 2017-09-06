@@ -17,8 +17,10 @@ public class Main2Activity extends AppCompatActivity {
         TextView textView = (TextView) findViewById(R.id.finalOutputText1);
         TextView textView1 = (TextView) findViewById(R.id.finalOutputText2);
         String st = getIntent().getStringExtra("content");
-        Spanned s = Html.fromHtml(st,Html.FROM_HTML_SEPARATOR_LINE_BREAK_LIST_ITEM|
-                Html.FROM_HTML_SEPARATOR_LINE_BREAK_LIST);
+        if (st==null){
+            st="";
+        }
+        Spanned s = Html.fromHtml(st);
         textView.setText(s);
         textView1.setText(st);
         if (st.contains("left")&& st.contains("align")){
